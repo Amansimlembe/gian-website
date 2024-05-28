@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodtech Webworks Limited</title>
+    <link rel="stylesheet" href="gian.css">
+    <script type="text/javascript" scr="gian.js"></script>
+    <script>
+        function openMenu() {
+   var x = document.getElementById("sidenav");
+   x.style.display = "block";
+   x.style.color = "red";
+   
+}
+function closeMenu() {
+    var x = document.getElementById("sidenav");
+    x.style.display = "none";
+}
+
+function hideLogo() {
+    var x = document.getElementById("foodtech");
+    x.style.visibility = "hidden"
+  
+}
+
+function showLogo() {
+    var x = document.getElementById("foodtech");
+    x.style.visibility= "visible"
+}
+
+
+</script>
+</head>
+<body>
+       <nav>
+        <button class="openMenu" onclick="openMenu()" onmouseover="onMouse()" >&#9776;</button>
+        
+            <span class="saumu"> 
+            <a href="#home"  id="ome">Home</a>
+            <a href="#about">About </a>
+            <a href="#vision">Vision</a>
+            <a href="#mission">Mission</a>
+            <a href="#value">Values</a>
+            <a href="#service">Services</a>
+            <a href="#founder">founder</a>
+            <a href="#commitment">commitment</a>
+            <a href="#contact">Contact</a>
+        </span>
+        </nav>
+
+        <a  target="_self" href="FoodTech Logo.png.png" class="nav-logo" onclick="OnClik()">
+        <img  class="logo" src="FoodTech Logo.png.png" >
+        <!--<span class="tooltiptextL">This is <b>official Logo</b> <br>of <abbr title="FoodTech WebWorks Limited">FTWL</abbr></span>-->
+        
+        </a>
+        <span onmouseover="hideLogo()" onmousemove="showLogo" id="foodtech">
+            <a>Foodtech Webworks Limited </a>
+                </span>
+                
+        <span id="sidenav" >
+            <a onclick="closeMenu()" class="closeMenu">Close &times;</a><br>
+            <a href="#home">Home</a><br>		
+            <a href="#about">About us</a><br>		
+            <a href="#service">Services</a><br>		
+            <a href="#founder">Founder</a><br>		
+            <a href="#commitment">Commitment</a><br>	
+            <a href="#contact">Contacts</a>	
+        </span> 
+    
+   <section>
+      <div id="home">
+            <h1>Homepage</h1>
+            <marquee
+            direction="right"
+            scrollamount="8"
+            behavior="altenative" style=" margin-right: 40%; background-color: rgb(12, 19, 14); height: 0%; text-align: center; border-radius: 50px;">
+            <h3>Welcome To Foodtech Webworks Limited!</h3>
+            <p><em>Empowering Food Businesses Online</em></p>
+            </marquee>
+            <p>
+                 We specialize in creating stunning websites and digital solutions tailored for businesses in the food industry.<br> Whether you're a restaurant, food manufacturer, or agricultural supplier, we have the expertise to elevate your online presence.
+            </p>
+            <div >
+            <h1 id="about">About us</h1>
+            <p>
+                <span style="color:blue;">Foodtech Webworks Limited(FWL)</span> is a unique blend of expertise in both food science/technology and web development. <br>Founded in 2024 by Tanzanian entrepreneur <span style="color:rgb(218, 117, 16);">Aman Gasper Simlembe,</span> the company has quickly established itself as a trusted partner for businesses seeking to enhance their digital presence. <br>Registered and licensed by BRELA in Tanzania, <abbr title="Foodtech Webworks Limited">FWL</abbr> is committed to delivering innovative solutions tailored to the unique needs of each client. Our team is passionate about helping food businesses thrive in the digital world.<br> With years of experience in both industries, we understand the unique challenges and opportunities facing food-related businesses.
+            </p>
+        </div>
+        
+        <div>
+            <h2 id="vision">Our Vision</h2>
+            <p>
+                To be the premier provider of cutting-edge web development and internet services, empowering food businesses to thrive in the digital age.
+            </p>
+        </div>
+        <div>
+            <h2 id="mission">Our Mission</h2>
+            <p>
+                To deliver high-quality, customized solutions that enable our clients to achieve their online goals. <br>We strive to exceed expectations through innovation, technical expertise, and exceptional customer service.
+            </p>
+        </div>
+        <div>
+            <h2 id="value">Our Values</h2>
+            <p>
+                <ul style="list-style-type: style circle;">
+                    <li>Excellence</li>
+                    <li>Intergrity</li>
+                    <li>Innovation</li>
+                    <li>Collaboration</li>
+                    <li>Customer Focus</li>
+                </ul>
+            </p>
+        </div>
+        <div >
+            <h1 id="founder">Founder</h1>
+            
+                <dfn style="font-weight: bold; font-size: larger; color: blue;">Aman Simlembe;</dfn> 
+                <p>A graduate in Bachelor of Food Science and Technology from the University of Dar es Salaam, is the visionary behind <a style="color:rgb(239, 218, 28) ;"><abbr title="FoodTech WebWorks Limited">FWL</abbr></a>. During his studies, <span style="color: blue;">Aman</span> developed a passion for web development and internet technologies. Through dedicated self-study and practical application, he honed his skills to become an expert in the field. <br>Drawing on his academic background and his expertise in Food Technology and web development, <span style="color: blue;">Aman</span> founded Foodtech Webworks Limited with a mission to Empower Food businesses across Tanzania and beyond to thrive in the digital landscape</p>
+                <a class= "tooltip" target="_self" href="PIC.jpg">  
+                <img class="mere" src="PIC.jpg" alt="Mr. Simlembe" ><span class="tooltiptext">This is <b>Mr. Simlembe Aman,</b> <br>A founder of <abbr title="FoodTech WebWorks Limited">FWL</abbr></span>
+                </a>
+        </div>
+        <div>
+            <h1 id="service">Our Services</h1>
+            <h3>Our services include:</h3>
+            <p>
+                <ul style="list-style:circle;">
+                    <li>Custom website design and development</li>
+                    <li>E-commerce solutions for online food businesses</li>
+                    <li>Mobile app development</li>
+                    <li>Search engine optimization (SEO) for increased online visibility</li>
+                    <li>Website maintenance and support</li>
+                    <li>Nutrtion Education<br>=>Healthy eating habits<br>=>Positive dietary choices<br>=>Nutritional counselling</li>
+                    <li>Menu planning and Reformulation</li>
+                </ul>
+            </p>
+        </div>
+        <div>
+            <h1 id="commitment">Our Commitment</h1>
+            <p> At Foodtech Webworks Limited, we are committed to delivering excellence in every project we undertake. <br>We combine creativity, technical expertise, and industry best practices to deliver solutions that exceed our clients' expectations. <br>Whether you're a startup looking to establish your online presence or a seasoned enterprise seeking to enhance your digital strategy, we are here to help you achieve your goals.</p>
+        </div>
+
+        <div>>
+            <h1 id="contact">Contact</h1>
+            <p>
+                Ready to take your food business to the next level online? Contact us today to discuss your project requirements and goals. <br>Reach out to us at www.foodtechWebworks.com/contact through:
+            </p>
+                  <div style="margin: 20px; border:none; padding: 20px; text-decoration: none; background-color:rgb(229, 218, 218) ; color: rgb(12, 10, 10); border-radius: 40px; font-size: larger;"  >
+                  <div >
+                 <p>Normal call & Whatsap : <a href="#" >+255752126735</a></p> 
+                </div> 
+
+                <div >
+                <p> C.E.O email:<a  href="#">amansimlembe11@gmail.com</a></p>
+            </div>
+
+                <div >
+                <p>Management email: <a href="#">foodtechwebworks@2024.co.tz</a></p>
+            </div>
+
+                <div >
+                <p> Our adress:<a href="#">P.O.BOX 0273, Dar es salaam</a></p>
+            </div>
+                  </div>
+           
+        </div>
+    </section>
+    <button>
+        <em>copyright &copy;2024 Foodtech Webworks Limited. All rights reserved</em>
+    </button>
+   
+</body>
+</html>
