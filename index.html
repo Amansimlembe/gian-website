@@ -11,10 +11,169 @@
     <link href="https://fonts.googleapis.com/css2?family=Country+Gothic&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        
+        body {
+            font-family: 'Century Gothic', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            margin-top: 60px; /* Offset for fixed navbar */
+        }
+
+        .logo {
+            width: 100px;
+            height: 90px;
+            border-radius: 50%;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 1;
+        }
+
+        .sidenav {
+            background-color: #343a40; /* Updated navigation sidebar background color */
+            position: fixed;
+            top: 0;
+            left: -250px; /* Initially hidden off-screen */
+            height: 100%;
+            width: 250px;
+            padding-top: 20px;
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow-y: auto; /* Enable vertical scrolling for small screens */
+            transition: left 0.3s ease; /* Smooth transition for sidebar animation */
+        }
+
+        .sidenav.open {
+            left: 0; /* Show sidebar on open */
+        }
+
+        .sidenav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+            font-weight: 700;
+        }
+
+        .sidenav a:hover {
+            background-color: #575757;
+        }
+
+        .sidenav .closeMenu {
+            font-size: 36px;
+            color: red;
+            text-align: right;
+            margin-right: 16px;
+            cursor: pointer;
+        }
+
+        .sidenav .footer-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #343a40;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 40px 20px; /* Adjusted padding for sections */
+            margin-top: 60px; /* Offset for fixed navbar */
+        }
+
+        .circled-figure {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 15px;
+            background-color: #4e5153; /* Adjusted color as needed */
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .service-summary {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 2px solid #007bff;
+        }
+
+        h1, h2, h3 {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        p em {
+            color: hsl(8, 94%, 51%);
+        }
+
+        button {
+            display: block;
+            width: fit-content;
+            padding: 10px 20px;
+            background-color: #906f04; /* Adjust button color as needed */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5em;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .contact-icons {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        footer {
+            background-color: #343a40; /* Updated footer background color */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
     </style>
     <script>
-        
+        function openMenu() {
+            document.getElementById("sidenav").classList.add("open");
+        }
+
+        function closeMenu() {
+            document.getElementById("sidenav").classList.remove("open");
+        }
+
+        // Toggle content visibility in sidebar for small screens
+        function toggleSidebarContent(id) {
+            var content = document.getElementById(id);
+            content.classList.toggle("visible");
+        }
     </script>
 </head>
 
@@ -105,11 +264,11 @@
             <p>
                 Our core values guide everything we do:
                 <ul>
-                    <li><strong>Excellence</strong> </li>
-                    <li><strong>Innovation</strong> </li>
-                    <li><strong>Integrity</strong> </li>
+                    <li><strong>Excellence</strong></li>
+                    <li><strong>Innovation</strong></li>
+                    <li><strong>Integrity</strong></li>
                     <li><strong>Customer-Centric</strong></li>
-                    <li><strong>Collaboration</strong> </li>
+                    <li><strong>Collaboration</strong></li>
                 </ul>
             </p>
         </section>
@@ -121,12 +280,12 @@
                 We offer a wide range of services designed to meet the specific needs of food businesses:
             </p>
             <ul>
-                <li><strong>Website Design and Development</strong> </li>
-                <li><strong>E-commerce Solutions</strong> </li>
-                <li><strong>Digital Marketing</strong> </li>
+                <li><strong>Website Design and Development</strong></li>
+                <li><strong>E-commerce Solutions</strong></li>
+                <li><strong>Digital Marketing</strong></li>
                 <li><strong>Mobile App Development</strong></li>
-                <li><strong>SEO and SEM</strong> </li>
-                <li><strong>Content Creation</strong> </li>
+                <li><strong>SEO and SEM</strong></li>
+                <li><strong>Content Creation</strong></li>
             </ul>
         </section>
 
@@ -145,19 +304,9 @@
             </p>
         </section>
 
-        
-        
-
         <section id="contact" class="contact-section">
             <h1>Contact Us</h1>
             <div class="social-icons">
-                <div class="contact-icons">
-                    <i class="fas fa-envelope"></i> amansimlembe11@gmail.com
-                    <br>
-                    <i class="fas fa-phone"></i>  +255 752126735
-                    <br>
-                    <i class="fas fa-map-marker-alt"></i>  Dar es Salaam, Tanzania
-                </div>
                 <a href="https://www.facebook.com/ChemistAmmy" target="_blank"><i class="fab fa-facebook-f fa-3x"
                         style="color: #3b5998;"></i></a>
                 <a href="https://www.twitter.com/ChemistAmmy" target="_blank"><i class="fab fa-twitter fa-3x"
@@ -171,7 +320,13 @@
                 <a href="https://foodtechwebworks.space" target="_blank"><i class="fas fa-globe fa-3x"
                         style="color: #333;"></i></a>
             </div>
-          
+            <div class="contact-icons">
+                <i class="fas fa-envelope"></i> amansimlembe11@gmail.com
+                <br>
+                <i class="fas fa-phone"></i> +255 752126735
+                <br>
+                <i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania
+            </div>
         </section>
     </div>
 
