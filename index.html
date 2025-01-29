@@ -13,86 +13,321 @@
 
     <!-- Embedded CSS for Custom Styles -->
     <style>
-       body {
-    font-family: 'Century Gothic', sans-serif;
-    background-color: #f8f9fa;
-    color: #495057;
-    margin-top: 90px; /* Increased margin for fixed navbar */
-}
+      /* General styles */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: lightgray;
+        color: #495057;
+        margin-top: 90px; /* Adjust for fixed navbar */
+        padding-bottom: 60px; /* Adjust for fixed footer */
+    }
+ /* Animate logo */
+ .logo {
+        width: 100px;
+        height: 90px;
+        border-radius: 50%;
+        opacity: 0.8;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .logo:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
 
 
-        .logo {
-            width: 100px;
-            height: 90px;
-            border-radius: 50%;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
+    
+
+      h1, h2, h3 {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    /* Home Section */
+    #home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #6e7e8f, #5e6a74);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #home h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        animation: fadeInUp 2s ease-in-out;
+    }
+
+    .btn-home {
+        background-color: #007bff;
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+
+    .btn-home:hover {
+        background-color: #0056b3;
+        transform: translateY(-5px);
+    }
+
+    .btn-home:focus {
+        outline: none;
+    }
+
+    /* Header Section Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
         }
-
-        .logo:hover {
+        to {
             opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+  
+    
+    /* Animate social icons */
+    .social-icons a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 1em;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        color: #007bff;
+        transform: rotate(360deg);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        #home {
+            height: auto;
+            padding: 40px 20px;
         }
 
-        .navbar-nav .nav-link i {
-            color: green; /* Change icon color to green */
-            font-size: 1.2em; /* Increase icon size slightly */
+        #home h1 {
+            font-size: 2.5rem;
         }
 
-        .sidenav {
-    background-color: #343a40;
-    position: fixed;
-    top: 0;
-    left: -150px; /* Updated width to 190px */
-    height: 100%;
-    width: 150px; /* Adjusted width for side navigation */
-    padding-top: 20px;
-    display: none;
-    flex-direction: column;
-    z-index: 1000;
-    overflow-y: auto;
-    transition: left 0.3s ease;
+        #home p {
+            font-size: 1rem;
+        }
+
+        .btn-home {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+    }
+    .navbar {
+    background-color: gray !important; /* Deep gray background */
 }
 
+    /* Animate nav icons */
+    .navbar-nav .nav-link i {
+        font-size: 1.5em; /* Slightly increase icon size */
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+
+/* Change the color of the nav items to make them stand out against gray background */
+.navbar-nav .nav-link {
+    color: #f8f9fa !important; /* Light text color for contrast on gray */
+   
+}
+
+/* Change color on hover for nav items */
+.navbar-nav .nav-link:hover {
+    
+    font-size: 1.2em; 
+    color: #007bff !important; /* Hover color */
+}
+
+
+    .navbar-nav .nav-link i:hover {
+        color: #007bff;
+        transform: scale(1.2);
+    }
+
+    /* Animate sidenav icons */
+    .sidenav a i {
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .sidenav a i:hover {
+        color: #ff5722;
+        transform: rotate(360deg);
+    }
+
+    /* Section title animations */
+    section h1 {
+        animation: fadeInDown 1.5s;
+    }
+
+    /* Keyframe animations */
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Footer bounce animation */
+    footer {
+        animation: bounceInUp 2s;
+    }
+
+    @keyframes bounceInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        60% {
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+   
+  
+
+    /* Navbar styling */
+    .navbar {
+        border-radius: 10px;
+        background-color: gray !important;
+    }
+
+    .navbar-nav .nav-link {
+        color: #f8f9fa !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #007bff !important;
+    }
+
+    /* Sidenav */
+    .sidenav {
+            background-color: #343a40;
+            position: fixed;
+            top: 90px; /* Below the navbar */
+            left: 0;
+            bottom: 85px; /* Full height minus navbar and footer */
+            width: 150px;
+            padding-top: 20px;
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+      
 
         .sidenav.open {
-            left: 0; /* Show sidebar on open */
+            display: flex; /* Show sidenav when open */
         }
 
-        .sidenav a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 8px 16px;
-            font-weight: 700;
+
+  
+    .sidenav .closeMenu {
+        font-size: 36px;
+        color: red;
+        text-align: right;
+        margin-right: 16px;
+        cursor: pointer;
+    }
+    /* Content */
+    main {
+            margin-left: 0; /* No margin when sidenav is hidden */
+            padding: 20px;
         }
 
-        .sidenav a:hover {
-            background-color: #575757;
+        @media (max-width: 768px) {
+            .sidenav {
+                display: flex; /* Show sidenav on small screens */
+                
+            }
+           
+
+            main {
+                margin-left: 200px; /* Space for sidenav */
+            }
+
+
+            .sidenav a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth animation for hover effects */
+}
+
+.sidenav a:hover {
+  background-color: #495057;
+  transform: translateX(10px); /* Adds a slight slide-in effect */
+}
         }
 
-        .sidenav .closeMenu {
-            font-size: 36px;
-            color: red;
-            text-align: right;
-            margin-right: 16px;
-            cursor: pointer;
-        }
+  
 
-        .sidenav .footer-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #343a40;
-            padding: 10px 0;
-            text-align: center;
-            font-weight: bold;
-        }
+        .navbar button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
+.navbar button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+    /* Footer styling */
+    footer {
+        background-color: #343a40;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 999;
+    }
+
+   
+
+       
         section {
     padding: 20px 20px; /* Adjusted padding for sections */
-    margin-top: 60px; /* Increased margin top */
-    margin-bottom: 10px; /* Increased margin bottom */
+    margin-top: 20px; /* Increased margin top */
+    margin-bottom: 33px; /* Increased margin bottom */
 }
 
         .circled-figure {
@@ -125,17 +360,141 @@
             color: hsl(8, 94%, 51%);
         }
 
-        button {
-            display: block;
-            width: fit-content;
-            padding: 10px 20px;
-            background-color: #906f04; /* Adjust button color as needed */
-            color: white;
-            border: none;
-            border-radius: 20px;
-            margin: 20px auto;
-            cursor: pointer;
-        }
+      
+
+
+  /* Static container styling */
+.container-about {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headers Row: Horizontal on large screens */
+.header-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Header and Content Container */
+.header-content {
+    border: 2px solid #1d3557;
+    border-radius: 8px;
+    overflow: hidden;
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Header Styling */
+.animated-header {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1d3557;
+    padding: 15px 20px;
+    background: #f1faee;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Hover and Active State */
+.animated-header:hover,
+.animated-header.active {
+    background: #1d3557;
+    color: #f1faee;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Content styling */
+.content {
+  display: none; /* Hidden by default */
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content p {
+  margin: 0 0 10px;
+}
+
+.content ul {
+  margin: 10px 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.content li {
+  margin: 5px 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .animated-header {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+  }
+
+  .content {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    /* Switch to vertical alignment on smaller devices */
+    .header-row {
+        flex-direction: column;
+    }
+
+    .animated-header {
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .content {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .animated-header {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .content {
+        text-align: justify;
+    }
+}
+
+
+    
 
         .social-icons {
             display: flex;
@@ -159,20 +518,80 @@
             margin-top: 20px; /* Adjust as needed */
         }
 
-        footer {
-    background-color: #343a40; /* Updated footer background color */
-    color: white;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin-top: 10px; /* Increased margin top */
+      
+
+
+
+#contact {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: transparent;
+    border: 1px solid green;
+    border-radius: 10px;
+    animation: fadeInUp 1.5s ease-in-out;
 }
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out 0.2s;
+}
+
+#contact .social-icons a {
+    font-size: 0.8rem;
+    margin: 0 15px;
+    color: #495057;
+    transition: color 0.3s, transform 0.3s ease;
+}
+
+#contact .social-icons a:hover {
+    color: #007bff;
+    transform: translateY(-5px) scale(1.2);
+}
+
+/* Fade-in and bounce animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
         @media (max-width: 768px) {
             /* Responsive Font Sizes */
+            #contact .social-icons a {
+    font-size: 0.6rem;
+    margin: 0 5px;
+    color: #495057;
+    transition: color 0.3s, transform 0.3s ease;
+}
+#contact .social-icons a:hover {
+    color: #007bff;
+    transform: translateY(-5px) scale(1.2);
+}
             h1, h2, h3 {
                 font-size: 1.8rem; /* Adjust font sizes for smaller screens */
             }
@@ -204,73 +623,142 @@
             .contact-icons a {
                 font-size: 1.2em; /* Adjusted contact icons size */
             }
+            
         }
+
+      
+/* Portfolio-style list for #service section */
+#service .services-list {
+        list-style: none; /* Remove default list styling */
+        display: grid; /* Use grid layout for flexible arrangements */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+        gap: 20px; /* Space between items */
+        padding: 0; /* Remove padding from the list */
+        margin-top: 30px; /* Add space above the list */
+    }
+
+    #service .services-list li {
+        background-color: #007bff; /* Card background color */
+        color: white; /* Text color */
+        padding: 20px; /* Space inside each card */
+        text-align: center; /* Center-align text */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        font-weight: bold; /* Make the text stand out */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
+    }
+
+    #service .services-list li:hover {
+        transform: translateY(-10px); /* Lift card on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+    }
+
+    /* Portfolio Section Styles */
+#portfolio {
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-video {
+    width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.portfolio-info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.portfolio-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.portfolio-info p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+/* Fade-in and bounce animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #portfolio .section-title {
+        font-size: 2rem;
+    }
+
+    #portfolio .section-description {
+        font-size: 1rem;
+    }
+
+    .portfolio-item {
+        margin-bottom: 20px;
+    }
+}
+
+li a{
+    border: 1px solid darkblue;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+li :hover{
+    background-color: #1d3557;
+}
+li :active{
+    background-color: #1d3557;
+}
+        
     </style>
 
-    <!-- JavaScript for Sidebar Functionality and Smooth Scroll -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const openButton = document.getElementById('navbarToggler');
-            const closeButton = document.querySelector('.closeMenu');
-            const sidebar = document.getElementById('sidenav');
-            const topButton = document.getElementById('topButton');
-
-          // Open sidebar function
-function openMenu() {
-    sidebar.classList.add('open');
-    sidebar.style.left = '0'; // Updated left position to show sidebar
-    sidebar.style.display= 'block'; 
-}
-
-// Close sidebar function
-function closeMenu() {
-    sidebar.classList.remove('open');
-    sidebar.style.left = '-150px'; // Updated left position to hide sidebar
-    sidebar.style.display= 'none'; 
-}
-
-
-            // Smooth scroll to top function
-            function scrollToTop() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-
-            // Event listener for open button (mobile menu toggle)
-            openButton.addEventListener('click', openMenu);
-
-            // Event listener for close button in sidebar
-            closeButton.addEventListener('click', closeMenu);
-
-            // Close sidebar if a link is clicked (optional)
-            const navLinks = document.querySelectorAll('.sidenav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-                
-            });
-
-            // Event listener for top button
-            topButton.addEventListener('click', scrollToTop);
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Function to open map link in new tab
-            function openMap() {
-                window.open('https://maps.google.com', '_blank'); // Replace with your map link
-            }
-
-            // Attach click event listener to location icon
-            const mapIcon = document.getElementById('mapIcon');
-            if (mapIcon) {
-                mapIcon.addEventListener('click', function (event) {
-                    event.preventDefault(); // Prevent default anchor behavior
-                    openMap(); // Call function to open map link
-                });
-            }
-        });
-    </script>
 </head>
 
 <body>
@@ -287,10 +775,8 @@ function closeMenu() {
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="#home"><i class="fas fa-home" style="color: green;"></i> Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-info-circle" style="color: blue;"></i> About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#vision"><i class="fas fa-eye" style="color: orange;"></i> Vision</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#mission"><i class="fas fa-bullseye" style="color: red;"></i> Mission</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#value"><i class="fas fa-star" style="color: purple;"></i> Values</a></li>
                     <li class="nav-item"><a class="nav-link" href="#service"><i class="fas fa-cogs" style="color: cyan;"></i> Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio"><i class="fas fa-star" style="color: purple;"></i> Our Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#founder"><i class="fas fa-user" style="color: pink;"></i> Founder</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope" style="color: brown;"></i> Contact</a></li>
                 </ul>
@@ -302,89 +788,117 @@ function closeMenu() {
     <aside id="sidenav" class="sidenav">
         <span class="closeMenu" onclick="closeMenu()">&times;</span>
         <a href="#home"><i class="fas fa-home" style="color: green;"></i> Home</a>
-        <a href="#about"><i class="fas fa-info-circle" style="color: blue;"></i> About us</a>
-        <a  href="#vision"><i class="fas fa-eye" style="color: orange;"></i> Vision</a>
-        <a href="#mission"><i class="fas fa-bullseye" style="color: red;"></i> Mission</a>
-        <a href="#value"><i class="fas fa-star" style="color: purple;"></i> Values</a>
+        <a href="#about"><i class="fas fa-info-circle" style="color: blue;"></i> About</a>
+       
         <a href="#service"><i class="fas fa-cogs" style="color: cyan;"></i> Services</a>
+        <a href="#portfolio"><i class="fas fa-star" style="color: purple;"></i> Our Portfolio</a>
         <a href="#founder"><i class="fas fa-user" style="color: pink;"></i> Founder</a>
         <a href="#contact"><i class="fas fa-envelope" style="color: brown;"></i> Contacts</a>
         
     </aside>
 
     <main class="container">
-        <section id="home">
-            <h1>Homepage</h1>
-            <marquee direction="right" scrollamount="8" behavior="alternate"
-                style="background-color: #0c0e0e; text-align: center; border-radius: 50px;">
-                <h3>Welcome To Foodtech Webworks Limited!</h3>
-                <p><em>Empowering Food Businesses Online</em></p>
-            </marquee>
-            <p>
-                We specialize in creating stunning websites and digital solutions tailored for businesses in the food
-                industry. Whether you're a restaurant, food manufacturer, or agricultural supplier, we have the
-                expertise to elevate your online presence.
-            </p>
-        </section>
+        <!-- Home Section -->
+<section id="home">
+    <h1>Welcome to FoodTech WebWorks Ltd</h1>
+    <p>We specialize in creating stunning websites and digital solutions tailored for businesses in the food industry. Whether you're a restaurant, food manufacturer, or agricultural supplier, we have the expertise to elevate your online presence.</p>
+    <a href="#about" class="btn-home">Learn More</a>
 
-        <section id="about">
-            <h1>About Us</h1>
-            <hr>
-            <p>
-                Foodtech Webworks Ltd is a dynamic company at the intersection of food and technology. Founded in 2024,
-                we are dedicated to leveraging digital innovations to transform how food businesses operate and engage
-                with their customers in the digital age.
-            </p>
-        </section>
-
-        <section id="vision">
-            <h1>Vision</h1>
-            <hr>
-            <p>
-                To become a leading provider of digital solutions for the food industry in Africa and beyond, known
-                for innovation, reliability, and exceptional customer service.
-            </p>
-        </section>
-
-        <section id="mission">
-            <h1>Mission</h1>
-            <hr>
-            <p>
-                To empower food businesses by creating impactful digital solutions that drive growth, enhance
-                efficiency, and connect them with their customers in meaningful ways.
-            </p>
-        </section>
-
-        <section id="value">
-            <h1>Values</h1>
-            <hr>
-            <p>
-                Our core values guide everything we do:
-                <ul>
-                    <li><strong>Excellence</strong></li>
-                    <li><strong>Innovation</strong></li>
-                    <li><strong>Integrity</strong></li>
-                    <li><strong>Customer-Centric</strong></li>
-                    <li><strong>Collaboration</strong></li>
-                </ul>
-            </p>
-        </section>
+    <!-- Social Icons -->
+    <div class="social-icons" id="about">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</section>
+        <div class="container-about" id="about">
+            <div class="header-row">
+                <div class="header-content">
+                    <h2 class="animated-header">About Us</h2>
+                    <p class="content">
+                        Foodtech Webworks Ltd is a dynamic company at the intersection of food and technology. Founded in 2024, we are dedicated to leveraging digital innovations to transform how food and agricultural businesses operate and engage with their customers in the digital age.
+                    </p>
+                </div>
+        
+                <div class="header-content">
+                    <h2 class="animated-header">Vision</h2>
+                    <p class="content">
+                        To become a leading provider of digital solutions for the food and agricultural industry in Africa and beyond, known for innovation, reliability, and exceptional customer service.
+                    </p>
+                </div>
+        
+                <div class="header-content">
+                    <h2 class="animated-header">Mission</h2>
+                    <p class="content">
+                        We aim to empower food businesses by creating impactful digital solutions that drive growth, enhance efficiency, and connect them with their customers in meaningful ways.
+                    </p>
+                </div>
+        
+                <div class="header-content">
+                    <h2 class="animated-header">Values</h2>
+                    <p class="content">
+                        Our core values include innovation, integrity, sustainability, and a commitment to excellence.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
 
         <section id="service">
-            <h1>Services</h1>
+            <div class="container">
+            <h2 class="text-center" class="animated-header">Our Services</h2>
             <hr>
             <p class="service-summary">
                 We offer a wide range of services designed to meet the specific needs of food businesses:
             </p>
-            <ul>
+            <ul class="services-list">
                 <li><strong>Website Design and Development</strong></li>
+                <li><strong>Software system Development</strong></li>
                 <li><strong>E-commerce Solutions</strong></li>
                 <li><strong>Digital Marketing</strong></li>
                 <li><strong>Mobile App Development</strong></li>
                 <li><strong>SEO and SEM</strong></li>
                 <li><strong>Content Creation</strong></li>
             </ul>
+        </div>
         </section>
+
+        <!-- Portfolio Section -->
+<section id="portfolio">
+    <h1 class="section-title">Our Portfolio</h1>
+    <p class="section-description">Check out some of our work in the food technology and web development sector.</p>
+    <div class="portfolio-container">
+        
+     <!-- Project 1: Tea Auction Catalogue System -->
+     <div class="portfolio-item">
+        <video controls class="portfolio-video">
+            <source src="aman.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="portfolio-info">
+            <h3>Tea Auction Catalogue System</h3>
+            <p>A custom-built system for generating and managing tea auction catalogues, streamlining processes for sellers and buyers.</p>
+        </div>
+    </div>
+        <div class="portfolio-item">
+            <img src="portfolio-image2.jpg" alt="Project 2" class="portfolio-img">
+            <div class="portfolio-info">
+                <h3>Project Name 2</h3>
+                <p>Short description of the project.</p>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="portfolio-image3.jpg" alt="Project 3" class="portfolio-img">
+            <div class="portfolio-info">
+                <h3>Project Name 3</h3>
+                <p>Short description of the project.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="founder">
             <h1>Founder</h1>
@@ -394,43 +908,40 @@ function closeMenu() {
                 <figcaption>Aman Gasper Simlembe, Founder & CEO</figcaption>
             </figure>
             <p>
-                Aman Gasper Simlembe is a visionary entrepreneur with a passion for both food technology and web
+                <span style="color: green; font-weight: bold;">Aman Gasper Simlembe</span> is a visionary entrepreneur with a passion for both food technology and web
                 development. He founded Foodtech Webworks Ltd in 2024 with the goal of bridging the gap between the
                 food industry and digital innovation. Aman's leadership and expertise drive our commitment to
                 delivering exceptional digital solutions tailored for food businesses.
             </p>
         </section>
 
-        <section id="contact" class="contact-section">
-            <h1>Contact Us <br> <span style="text-align: center;"><h3>Click icon to reach us</h3></span></h1>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/ChemistAmmy" target="_blank"><i class="fab fa-facebook-f fa-3x"
-                        style="color: #3b5998;"></i></a>
-                <a href="https://www.twitter.com/ChemistAmmy" target="_blank"><i class="fab fa-twitter fa-3x"
-                        style="color: #1da1f2;"></i></a>
-                <a href="https://www.instagram.com/foodtechwebworksltd" target="_blank"><i class="fab fa-instagram fa-3x"
-                        style="color: #e4405f;"></i></a>
-                <a href="https://www.tiktok.com/@foodtechwebworksltd" target="_blank"><i class="fab fa-tiktok fa-3x"
-                        style="color: #69c9d0;"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=+255752126735" target="_blank"><i class="fab fa-whatsapp fa-3x"
-                        style="color: #25d366;"></i></a>
-                <a href="https://foodtechwebworks.space" target="_blank"><i class="fas fa-globe fa-3x"
-                        style="color: #333;"></i></a>
-            </div>
+        
+<!-- Contact Section -->
+<section id="contact" class="text-center">
+    <h2>Get in Touch with Us</h2>
+    <p>We'd love to hear from you! Feel free to reach out to us for any inquiries or feedback.</p>
+  
+     <!-- Social Icons -->
+     <div class="social-icons">
+        <a href="https://www.facebook.com/ChemistAmmy" target="_blank"><i class="fab fa-facebook-f fa-3x" style="color: #3b5998;"></i></a>
+        <a href="https://www.twitter.com/ChemistAmmy" target="_blank"><i class="fab fa-twitter fa-3x" style="color: #1da1f2;"></i></a>
+        <a href="https://www.instagram.com/foodtechwebworksltd" target="_blank"><i class="fab fa-instagram fa-3x" style="color: #e4405f;"></i></a>
+        <a href="https://www.tiktok.com/@foodtechwebworksltd" target="_blank"><i class="fab fa-tiktok fa-3x" style="color: #69c9d0;"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=+255752126735" target="_blank"><i class="fab fa-whatsapp fa-3x" style="color: #25d366;"></i></a>
+        <a href="https://foodtechwebworks.space" target="_blank"><i class="fas fa-globe fa-3x" style="color: #333;"></i></a>
+        <a href="mailto:amansimlembe11@gmail.com"><i class="fas fa-envelope fa-3x" style="color: #2218d8;"></i></a>
+        <a href="tel:+255752126735"><i class="fas fa-phone fa-3x" style="color: #10db57;"></i></a>
+        <a id="mapIcon" href="#"><i class="fas fa-map-marker-alt fa-3x" style="color: #0ca45b;"></i></a>
+    </div>
+</section>
 
-            <div class="contact-icons">
-                <a href="mailto:amansimlembe11@gmail.com"><i class="fas fa-envelope fa-3x" style="color: #2218d8;"></i></a>
-                <a href="tel:+255752126735"><i class="fas fa-phone fa-3x" style="color: #10db57;"></i></a>
-                <a id="mapIcon" href="#"><i class="fas fa-map-marker-alt fa-3x" style="color: #0ca45b;"></i></a>
-            </div>
-            </div>
-        </section>
     </main>
 
     <!-- Top Button -->
-    <button id="topButton" onclick="scrollToTop()" title="Go to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+   <!-- Scroll to Top Button -->
+   <button id="topButton" class="btn btn-primary" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+    <i class="fas fa-arrow-up"></i> Top
+</button>
 
     <!-- Footer -->
     <footer>
@@ -441,6 +952,123 @@ function closeMenu() {
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+  
+    // Handle header clicks
+    $(".animated-header").on("click", function (e) {
+        e.stopPropagation(); // Prevent triggering the outside click event
+        const headerContent = $(this).closest(".header-content");
+        const content = headerContent.find(".content");
+
+        // Check if the clicked header is already active
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active"); // Remove active state
+            content.slideUp(300); // Hide its content
+        } else {
+            // If not active, activate it and show content
+            $(".animated-header").removeClass("active"); // Deactivate others
+            $(".content").slideUp(300); // Hide other content
+            $(this).addClass("active"); // Activate clicked header
+            content.slideDown(300); // Show its content
+        }
+    });
+
+    // Hide content when clicking outside the container or scrolling
+    $(document).on("click scroll", function (e) {
+        if (!$(e.target).closest(".container-about").length) {
+            $(".animated-header").removeClass("active"); // Remove active state
+            $(".content").slideUp(300); // Hide all content
+        }
+    });
+
+    const $openButton = $('#navbarToggler');
+    const $closeButton = $('.closeMenu');
+    const $sidebar = $('#sidenav');
+    const $navLinks = $('.sidenav a');
+    const $mapIcon = $('#mapIcon');
+
+    // Open sidebar function
+    function openMenu() {
+        $sidebar.addClass('open').css({
+            left: '0',
+            display: 'block'
+        });
+    }
+
+    // Close sidebar function
+    function closeMenu() {
+        $sidebar.removeClass('open').css({
+            left: '-150px',
+            display: 'none'
+        });
+    }
+
+    // Event listener for open button (mobile menu toggle)
+    $openButton.on('click', openMenu);
+
+    // Event listener for close button in sidebar
+    $closeButton.on('click', closeMenu);
+
+    // Close sidebar if a link is clicked (optional)
+    $navLinks.on('click', closeMenu);
+
+    // Open map link in new tab
+    function openMap() {
+        window.open('https://maps.google.com', '_blank'); // Replace with your map link
+    }
+
+    // Attach click event listener to location icon
+    if ($mapIcon.length) {
+        $mapIcon.on('click', function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            openMap(); // Call function to open map link
+        });
+    }
+
+    const $topButton = $('#topButton');
+
+    // Show or hide the button based on scroll position
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 300) {
+            $topButton.fadeIn(); // Show the button when scrolled down
+        } else {
+            $topButton.fadeOut(); // Hide the button when near the top
+        }
+    });
+
+    // Scroll to top when the button is clicked
+    $topButton.on('click', function () {
+        $('html, body').animate({ scrollTop: 0 }, 800); // Smooth scroll to the top
+    });
+
+    // Toggle sidenav open/close
+    $('#menu-btn').click(function () {
+        if ($sidebar.hasClass('open')) {
+            closeMenu(); // Close the sidebar if already open
+        } else {
+            openMenu(); // Open the sidebar if closed
+        }
+    });
+
+    // Close sidenav
+    $('#close-btn').click(function () {
+        closeMenu();
+    });
+
+    // Prevent sidenav from closing when a link is clicked
+    $('#sidenav a').click(function (event) {
+        event.stopPropagation(); // Stops the event from propagating
+        // Optionally, you can add custom navigation logic here
+    });
+        
+    });
+    
+ 
+</script>
+
 </body>
 
 </html>
