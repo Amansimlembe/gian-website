@@ -34,10 +34,11 @@ body {
     transform: scale(1.1);
 }
 
- h2, h3 {
+ h1, h2, h3 {
     color: #007bff; /* Blue for headings */
     font-weight: bold;
 }
+
 
 /* Home Section */
 #home {
@@ -318,19 +319,7 @@ section {
     margin-bottom: 33px;
 }
 
-.circled-figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 10px;
-    background-color: #495057; /* Dark gray background */
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 10px auto;
-    border-radius: 10px;
-}
+
 
 .service-summary {
     margin-top: 10px;
@@ -897,7 +886,93 @@ li :active {
     .testimonial-carousel {
         scroll-snap-type: none;
     }
-}   
+}  
+
+/* Our Team Section Styling */
+#founder {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Light gray background */
+    text-align: center;
+    border-radius: 10px;
+    margin: 40px 0;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+#founder h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #007bff; /* Blue text */
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.team-member {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member-inner {
+    text-align: center;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: #007bff; /* Blue text */
+    margin: 15px 0 10px;
+}
+
+.team-member .role {
+    font-size: 1.1rem;
+    color: #28a745; /* Green text for role */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.team-member .description {
+    font-size: 1rem;
+    color: #555; /* Gray text */
+    line-height: 1.6;
+}
+
+.circled-figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #495057; /* Dark gray background */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team-container {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .team-member {
+        margin-bottom: 20px;
+    }
+}
     </style>
 
 </head>
@@ -918,7 +993,7 @@ li :active {
                     <li class="nav-item"><a class="nav-link" href="#about"><i class="fas fa-info-circle" style="color: blue;"></i> About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#service"><i class="fas fa-cogs" style="color: cyan;"></i> Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio"><i class="fas fa-star" style="color: purple;"></i> Our Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#founder"><i class="fas fa-user" style="color: pink;"></i> Founder</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#founder"><i class="fas fa-user" style="color: pink;"></i> Our Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope" style="color: brown;"></i> Contact</a></li>
                 </ul>
             </div>
@@ -933,7 +1008,7 @@ li :active {
        
         <a href="#service"><i class="fas fa-cogs" style="color: cyan;"></i> Services</a>
         <a href="#portfolio"><i class="fas fa-star" style="color: purple;"></i> Our Portfolio</a>
-        <a href="#founder"><i class="fas fa-user" style="color: pink;"></i> Founder</a>
+        <a href="#founder"><i class="fas fa-user" style="color: pink;"></i> Our Team</a>
         <a href="#contact"><i class="fas fa-envelope" style="color: brown;"></i> Contacts</a>
         
     </aside>
@@ -941,7 +1016,7 @@ li :active {
     <main class="container">
         <!-- Home Section -->
 <section id="home">
-    <h1>Welcome to FoodTech WebWorks Ltd</h1>
+    <h4 style="font-size: 2.5rem;">Welcome to FoodTech WebWorks Ltd</h4>
     <p>We specialize in creating stunning websites and digital solutions tailored for businesses in the food industry. Whether you're a restaurant, food manufacturer, or agricultural supplier, we have the expertise to elevate your online presence.</p>
     <a href="#about" class="btn-home">Learn More</a>
 
@@ -1078,22 +1153,55 @@ li :active {
         </div>
     </div>
 </section>
+<!-- Our Team Section -->
+<section id="founder">
+    <h1 class="text-center">Our Team</h1>
+    <hr class="mb-5">
+    
+    <div class="team-container">
+        <!-- Founder -->
+        <div class="team-member">
+            <div class="team-member-inner">
+                <figure class="circled-figure">
+                    <img src="PIC.jpg" alt="Founder - Aman Gasper Simlembe" style="width: 200px; height: 200px; border-radius: 50%;">
+                </figure>
+                <h3>Aman Gasper Simlembe</h3>
+                <p class="role">Founder & CEO</p>
+                <p class="description">
+                    A visionary entrepreneur with a passion for both food technology and web development. Aman founded Foodtech Webworks Ltd in 2024 with the goal of bridging the gap between the food industry and digital innovation.
+                </p>
+            </div>
+        </div>
 
-        <section id="founder">
-            <h1>Founder</h1>
-            <hr>
-            <figure class="circled-figure">
-                <img src="PIC.jpg" alt="Founder - Aman Gasper Simlembe" style="width: 200px; height: 200px; border-radius: 50%;">
-                <figcaption>Aman Gasper Simlembe, Founder & CEO</figcaption>
-            </figure>
-            <p>
-                <span style="color: green; font-weight: bold;">Aman Gasper Simlembe</span> is a visionary entrepreneur with a passion for both food technology and web
-                development. He founded Foodtech Webworks Ltd in 2024 with the goal of bridging the gap between the
-                food industry and digital innovation. Aman's leadership and expertise drive our commitment to
-                delivering exceptional digital solutions tailored for food businesses.
-            </p>
-        </section>
+        <!-- Accountant -->
+        <div class="team-member">
+            <div class="team-member-inner">
+                <figure class="circled-figure">
+                    <img src="fikira1.jpg" alt="Accountant - Fikira Nakapizye" style="width: 200px; height: 200px; border-radius: 50%;">
+                </figure>
+                <h3>Fikira Nakapizye</h3>
+                <p class="role">Accountant</p>
+                <p class="description">
+                    A skilled accountant with extensive experience in financial management and budgeting. Fikira ensures the financial health of Foodtech Webworks Ltd, managing accounts, payroll, and financial reporting with precision.
+                </p>
+            </div>
+        </div>
 
+        <!-- Marketing Manager -->
+        <div class="team-member">
+            <div class="team-member-inner">
+                <figure class="circled-figure">
+                    <img src="FoodTech Logo.png.png" alt="Marketing Manager - Hekima Gaspa" style="width: 200px; height: 200px; border-radius: 50%;">
+                </figure>
+                <h3>Hekima Gaspa</h3>
+                <p class="role">Marketing Manager</p>
+                <p class="description">
+                    A dynamic marketing professional with a proven track record in digital marketing and brand management. Hekima leads our marketing strategies, ensuring that Foodtech Webworks Ltd reaches its target audience effectively.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
         <!-- Testimonials Section -->
 <section id="testimonials">
     <h1>Testimonials</h1>
