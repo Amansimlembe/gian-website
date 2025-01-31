@@ -229,62 +229,13 @@ footer {
     color: #007bff !important; /* Blue on hover */
 }
 
-/* Sidenav */
-.sidenav {
-    background-color: #343a40; /* Dark gray background */
-    position: fixed;
-    top: 90px; /* Below the navbar */
-    left: 0;
-    bottom: 85px; /* Full height minus navbar and footer */
-    width: 150px;
-    padding-top: 20px;
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    overflow-y: auto;
-    z-index: 1000;
-}
-
-.sidenav.open {
-    display: flex; /* Show sidenav when open */
-}
-
-.sidenav .closeMenu {
-    font-size: 36px;
-    color: #dc3545; /* Red close button */
-    text-align: right;
-    margin-right: 16px;
-    cursor: pointer;
-}
-
 /* Content */
 main {
     margin-left: 0; /* No margin when sidenav is hidden */
     padding: 20px;
 }
 
-@media (max-width: 768px) {
-    .sidenav {
-        display: flex; /* Show sidenav on small screens */
-    }
 
-    main {
-        margin-left: 200px; /* Space for sidenav */
-    }
-
-    .sidenav a {
-        color: white;
-        text-decoration: none;
-        display: block;
-        padding: 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .sidenav a:hover {
-        background-color: #495057; /* Darker gray on hover */
-        transform: translateX(10px);
-    }
-}
 
 .navbar button {
     background-color: #007bff; /* Blue button */
@@ -319,6 +270,60 @@ section {
     margin-bottom: 33px;
 }
 
+/* Sidebar Styling */
+.sidenav {
+    background-color: #343a40; /* Dark gray background */
+    position: fixed;
+    top: 90px; /* Below the navbar */
+    left: -180px; /* Start off-screen */
+    bottom: 85px; /* Full height minus navbar and footer */
+    width: 180px; /* Increased width for better visibility */
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out; /* Smooth slide-in animation */
+}
+
+.sidenav.open {
+    left: 0; /* Slide in when open */
+}
+
+/* Close Menu Button Styling */
+.sidenav .closeMenu {
+    font-size: 36px;
+    color: #dc3545; /* Red close button */
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Positioned on the right side */
+    transition: color 0.3s ease;
+}
+
+.sidenav .closeMenu:hover {
+    color: #ff6b6b; /* Lighter red on hover */
+}
+
+/* Sidebar Links Styling */
+.sidenav a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    
+}
+
+.sidenav a:hover {
+    background-color:green; /* Darker gray on hover */
+    transform: translateX(10px); /* Slight move to the right on hover */
+}
+
+.sidenav a i {
+    margin-right: 10px; /* Space between icon and text */
+}
 
 
 .service-summary {
@@ -465,128 +470,118 @@ p em {
     }
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center; /* Center align icons horizontally */
-    margin-bottom: 10px; /* Adjust as needed */
-}
-
-.social-icons a {
-    color: #333;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 1em; /* Adjusted smaller size */
-}
-
-.social-icons a:hover {
-    color: #007bff; /* Blue on hover */
-}
-
-.contact-icons {
-    text-align: center; /* Center-align contact icons */
-    margin-top: 20px; /* Adjust as needed */
-}
-
+/* Contact Section Styling */
 #contact {
     margin-top: 50px;
-    padding: 20px;
-    background-color: transparent;
-    border: 1px solid #28a745; /* Green border */
-    border-radius: 50px;
+    padding: 40px 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center;
     animation: fadeInUp 1.5s ease-in-out;
 }
 
 #contact h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #007bff; /* Blue text */
     animation: fadeInDown 1s ease-in-out;
 }
 
 #contact p {
     font-size: 1.1rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: #555; /* Gray text */
     animation: fadeInDown 1s ease-in-out 0.2s;
 }
 
-#contact .social-icons a {
-    font-size: 0.8rem;
-    margin: 0 15px;
-    color: #495057; /* Dark gray icons */
-    transition: color 0.3s, transform 0.3s ease;
+/* Social Icons Styling */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between icons */
+    margin-top: 20px;
 }
 
-#contact .social-icons a:hover {
-    color: #007bff; /* Blue on hover */
-    transform: translateY(-5px) scale(1.2);
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Fade-in and bounce animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.social-icons a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.social-icons a i {
+    font-size: 1.5rem;
+    color: #007bff; /* Blue icons */
+    transition: color 0.3s ease;
 }
 
+.social-icons a:hover i {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Specific Icon Colors */
+.social-icons a[href*="facebook"] i {
+    color: #3b5998; /* Facebook blue */
+}
+
+.social-icons a[href*="twitter"] i {
+    color: #1da1f2; /* Twitter blue */
+}
+
+.social-icons a[href*="instagram"] i {
+    color: #e4405f; /* Instagram pink */
+}
+
+.social-icons a[href*="tiktok"] i {
+    color: #69c9d0; /* TikTok teal */
+}
+
+.social-icons a[href*="whatsapp"] i {
+    color: #25d366; /* WhatsApp green */
+}
+
+.social-icons a[href*="mailto"] i {
+    color: #d44638; /* Gmail red */
+}
+
+.social-icons a[href*="tel"] i {
+    color: #34b7f1; /* Phone blue */
+}
+
+.social-icons a[href*="map"] i {
+    color: #0ca45b; /* Map green */
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    /* Responsive Font Sizes */
-    #contact .social-icons a {
-        font-size: 0.6rem;
-        margin: 0 5px;
-        color: #495057; /* Dark gray icons */
-        transition: color 0.3s, transform 0.3s ease;
+    #contact h2 {
+        font-size: 2rem;
     }
 
-    #contact .social-icons a:hover {
-        color: #007bff; /* Blue on hover */
-        transform: translateY(-5px) scale(1.2);
-    }
-
-    h1, h2, h3 {
-        font-size: 1.8rem; /* Adjust font sizes for smaller screens */
-    }
-
-    p {
-        font-size: 1rem; /* Adjust paragraph font size */
-    }
-
-    .circled-figure {
-        font-size: 1rem; /* Adjust figure font size */
-    }
-
-    .service-summary {
-        padding-left: 10px; /* Adjusted padding for service summary */
-    }
-
-    .card-title {
-        font-size: 1.2rem; /* Adjusted card title font size */
-    }
-
-    .card-text {
-        font-size: 0.9rem; /* Adjusted card text font size */
+    #contact p {
+        font-size: 1rem;
     }
 
     .social-icons a {
-        font-size: 0.9em; /* Adjusted social icons size */
+        width: 50px;
+        height: 50px;
     }
 
-    .contact-icons a {
-        font-size: 1.2em; /* Adjusted contact icons size */
+    .social-icons a i {
+        font-size: 1.2rem;
     }
 }
 
@@ -1000,18 +995,16 @@ li :active {
         </div>
     </nav>
 
-    <!-- Side Navigation -->
-    <aside id="sidenav" class="sidenav">
-        <span class="closeMenu" onclick="closeMenu()">&times;</span>
-        <a href="#home"><i class="fas fa-home" style="color: green;"></i> Home</a>
-        <a href="#about"><i class="fas fa-info-circle" style="color: blue;"></i> About</a>
-       
-        <a href="#service"><i class="fas fa-cogs" style="color: cyan;"></i> Services</a>
-        <a href="#portfolio"><i class="fas fa-star" style="color: purple;"></i> Our Portfolio</a>
-        <a href="#founder"><i class="fas fa-user" style="color: pink;"></i> Our Team</a>
-        <a href="#contact"><i class="fas fa-envelope" style="color: brown;"></i> Contacts</a>
-        
-    </aside>
+   <!-- Side Navigation -->
+<aside id="sidenav" class="sidenav">
+    <span class="closeMenu" onclick="closeMenu()">&times;</span>
+    <a href="#home"><i class="fas fa-home" style="color: green;"></i> Home</a>
+    <a href="#about"><i class="fas fa-info-circle" style="color: blue;"></i> About</a>
+    <a href="#service"><i class="fas fa-cogs" style="color: cyan;"></i> Services</a>
+    <a href="#portfolio"><i class="fas fa-star" style="color: purple;"></i> Our Portfolio</a>
+    <a href="#founder"><i class="fas fa-user" style="color: pink;"></i> Our Team</a>
+    <a href="#contact"><i class="fas fa-envelope" style="color: brown;"></i> Contact</a>
+</aside>
 
     <main class="container">
         <!-- Home Section -->
@@ -1193,7 +1186,7 @@ li :active {
                 <figure class="circled-figure">
                     <img src="FoodTech Logo.png.png" alt="Marketing Manager - Hekima Gaspa" style="width: 200px; height: 200px; border-radius: 50%;">
                 </figure>
-                <h3>Hekima Gaspa</h3>
+                <h3>Hekima Nairobi</h3>
                 <p class="role">Marketing Manager</p>
                 <p class="description">
                     A dynamic marketing professional with a proven track record in digital marketing and brand management. Hekima leads our marketing strategies, ensuring that Foodtech Webworks Ltd reaches its target audience effectively.
@@ -1219,49 +1212,57 @@ li :active {
             <p><strong>- Linda Jofrey</strong></p>
         </div>
         <div class="testimonial-item">
-            <p>"Their attention to detail and innovative approach set them apart. We couldn't be happier with the results!"</p>
+            <p>"They truly stand out with their creativity and precision. The results exceeded our expectations!"</p>
             <p><strong>- Ritto Gadi</strong></p>
         </div>
     </div>
 </section>
-
 <!-- Blog Section -->
 <section id="blog">
     <h1>Blog</h1>
     <div class="blog-item">
-        <h3>Latest Trends in Food Technology</h3>
-        <p>Discover the latest trends in food technology and how they are shaping the future of the industry. From AI-driven supply chains to sustainable packaging, the food tech space is evolving rapidly.</p>
+        <h3>Why Digital Presence is Crucial for Modern Businesses</h3>
+        <p>In today's digital age, having a strong online presence is essential for businesses to thrive. From websites to social media, discover how a digital presence can help you reach a wider audience and grow your business.</p>
         <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
         <div class="full-content">
-            <p>Artificial intelligence is revolutionizing food production, enabling predictive analytics for crop yields and optimizing supply chains. Meanwhile, blockchain technology is enhancing food traceability, ensuring transparency from farm to table.</p>
+            <p>A strong digital presence allows businesses to connect with customers 24/7, build brand awareness, and drive sales. With the right strategies, businesses can leverage digital platforms to create meaningful engagement and foster customer loyalty.</p>
         </div>
     </div>
     <div class="blog-item">
-        <h3>Digital Transformation in Agriculture</h3>
-        <p>Learn how digital transformation is revolutionizing the agricultural sector and improving productivity. Farmers are now leveraging IoT devices and drones to monitor crops and soil health.</p>
+        <h3>Top Strategies for Building a Strong Digital Presence</h3>
+        <p>Learn the key strategies for building a robust digital presence, including website optimization, social media marketing, and search engine optimization (SEO).</p>
         <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
         <div class="full-content">
-            <p>With the integration of IoT sensors, farmers can now monitor soil moisture, temperature, and nutrient levels in real-time. Drones are being used for aerial surveys, helping farmers identify problem areas and optimize resource allocation.</p>
+            <p>To build a strong digital presence, businesses should focus on creating a user-friendly website, engaging with their audience on social media, and optimizing their content for search engines. Additionally, leveraging analytics tools can help businesses track their performance and make data-driven decisions.</p>
+        </div>
+    </div>
+    <div class="blog-item">
+        <h3>The Role of Social Media in Digital Business Growth</h3>
+        <p>Social media platforms are powerful tools for businesses to connect with their audience. Discover how to effectively use social media to boost your digital presence and drive business growth.</p>
+        <span class="read-more" onclick="toggleReadMore(this)">Read More</span>
+        <div class="full-content">
+            <p>Social media platforms like Facebook, Instagram, and LinkedIn offer businesses the opportunity to engage with their audience, share valuable content, and build a community around their brand. By consistently posting relevant content and interacting with followers, businesses can enhance their online visibility and attract new customers.</p>
         </div>
     </div>
 </section>
+
 
 <!-- Contact Section -->
 <section id="contact" class="text-center">
     <h2>Get in Touch with Us</h2>
     <p>We'd love to hear from you! Feel free to reach out to us for any inquiries or feedback.</p>
   
-     <!-- Social Icons -->
-     <div class="social-icons">
-        <a href="https://www.facebook.com/ChemistAmmy" target="_blank"><i class="fab fa-facebook-f fa-3x" style="color: #3b5998;"></i></a>
-        <a href="https://www.twitter.com/ChemistAmmy" target="_blank"><i class="fab fa-twitter fa-3x" style="color: #1da1f2;"></i></a>
-        <a href="https://www.instagram.com/foodtechwebworksltd" target="_blank"><i class="fab fa-instagram fa-3x" style="color: #e4405f;"></i></a>
-        <a href="https://www.tiktok.com/@foodtechwebworksltd" target="_blank"><i class="fab fa-tiktok fa-3x" style="color: #69c9d0;"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=+255752126735" target="_blank"><i class="fab fa-whatsapp fa-3x" style="color: #25d366;"></i></a>
-        <a href="https://foodtechwebworks.space" target="_blank"><i class="fas fa-globe fa-3x" style="color: #333;"></i></a>
-        <a href="mailto:amansimlembe11@gmail.com"><i class="fas fa-envelope fa-3x" style="color: #2218d8;"></i></a>
-        <a href="tel:+255752126735"><i class="fas fa-phone fa-3x" style="color: #10db57;"></i></a>
-        <a id="mapIcon" href="#"><i class="fas fa-map-marker-alt fa-3x" style="color: #0ca45b;"></i></a>
+    <!-- Social Icons -->
+    <div class="social-icons">
+        <a href="https://www.facebook.com/ChemistAmmy" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com/ChemistAmmy" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/foodtechwebworksltd" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@foodtechwebworksltd" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=+255752126735" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://foodtechwebworks.space" target="_blank"><i class="fas fa-globe"></i></a>
+        <a href="mailto:amansimlembe11@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+255752126735"><i class="fas fa-phone"></i></a>
+        <a id="mapIcon" href="#"><i class="fas fa-map-marker-alt"></i></a>
     </div>
 </section>
 
