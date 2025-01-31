@@ -1023,7 +1023,7 @@ li :active {
         <div class="container-about" id="about">
             <div class="header-row">
                 <div class="header-content">
-                    <h2 class="animated-header">About Us</h2>
+                    <h2 id="first-header" class="animated-header">About Us</h2>
                     <p class="content">
                         Foodtech Webworks Ltd is a dynamic company at the intersection of food and technology. Founded in 2024, we are dedicated to leveraging digital innovations to transform how food and agricultural businesses operate and engage with their customers in the digital age.
                     </p>
@@ -1075,77 +1075,87 @@ li :active {
         </div>
         </section>
 
-        <!-- Portfolio Section -->
+       <!-- Portfolio Section -->
 <section id="portfolio">
     <h1 class="section-title">Our Portfolio</h1>
     <p class="section-description">Check out some of our work in the food technology and web development sector.</p>
     <div class="portfolio-container">
         
-     <!-- Project 1: Tea Auction Catalogue System -->
-     <div class="portfolio-item">
-        <video controls class="portfolio-video">
-            <source src="logging.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="portfolio-info">
-            <h3>Log In and Side bar System</h3>
-            <p>Short description of the project.</p>
-        </div>
-    </div>
-
-     <div class="portfolio-item">
-        <video controls class="portfolio-video">
-            <source src="aman.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="portfolio-info">
-            <h3>Tea Auction Catalogue System</h3>
-            <p>A custom-built system for generating and managing tea auction catalogues, streamlining processes for sellers and buyers.</p>
-        </div>
-    </div>
+        <!-- Project 1: Log In and Sidebar System -->
         <div class="portfolio-item">
             <video controls class="portfolio-video">
-                <source src="aman.mp" type="video/mp4">
+                <source src="logging.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="portfolio-info">
-                <h3>Invoice Genarating system</h3>
-                <p>Short description of the project.</p>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <video controls class="portfolio-video">
-                <source src="aman.mp" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="portfolio-info">
-                <h3>Account Sale Generating system</h3>
-                <p>Short description of the project.</p>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <video controls class="portfolio-video">
-                <source src="aman.mp" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="portfolio-info">
-                <h3>Sale Result Summary system</h3>
-                <p>Short description of the project.</p>
+                <h3>Log In and Sidebar System</h3>
+                <p>A secure and user-friendly login system with a dynamic sidebar for navigation.</p>
             </div>
         </div>
 
+        <!-- Project 2: Tea Auction Catalogue System -->
+        <div class="portfolio-item">
+            <video controls class="portfolio-video">
+                <source src="aman.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="portfolio-info">
+                <h3>Tea Auction Catalogue System</h3>
+                <p>A custom-built system for generating and managing tea auction catalogues, streamlining processes for sellers and buyers.</p>
+            </div>
+        </div>
+
+        <!-- Project 3: Invoice Generating System -->
         <div class="portfolio-item">
             <video controls class="portfolio-video">
                 <source src="aman.mp" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="portfolio-info">
-                <h3>Market Report Generating system</h3>
-                <p>Short description of the project.</p>
+                <h3>Invoice Generating System</h3>
+                <p>An automated system for generating and managing invoices, reducing manual effort and errors.</p>
+            </div>
+        </div>
+
+        <!-- Project 4: Account Sale Generating System -->
+        <div class="portfolio-item">
+            <video controls class="portfolio-video">
+                <source src="aman.mp" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="portfolio-info">
+                <h3>Account Sale Generating System</h3>
+                <p>A system designed to automate the generation of account sale reports, improving efficiency.</p>
+            </div>
+        </div>
+
+        <!-- Project 5: Sale Result Summary System -->
+        <div class="portfolio-item">
+            <video controls class="portfolio-video">
+                <source src="aman.mp" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="portfolio-info">
+                <h3>Sale Result Summary System</h3>
+                <p>A comprehensive system for summarizing sale results, providing insights for decision-making.</p>
+            </div>
+        </div>
+
+        <!-- Project 6: Market Report Generating System -->
+        <div class="portfolio-item">
+            <video controls class="portfolio-video">
+                <source src="aman.mp" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="portfolio-info">
+                <h3>Market Report Generating System</h3>
+                <p>An automated system for generating detailed market reports, saving time and improving accuracy.</p>
             </div>
         </div>
     </div>
 </section>
+
+
 <!-- Our Team Section -->
 <section id="founder">
     <h1 class="text-center">Our Team</h1>
@@ -1315,6 +1325,13 @@ li :active {
     $(document).ready(function () {
 
   
+ // Automatically expand the first header's content on page load
+ const firstHeader = $("#first-header");
+    const firstContent = firstHeader.closest(".header-content").find(".content");
+
+    firstHeader.addClass("active"); // Add active class to the first header
+    firstContent.slideDown(300); // Show its content
+
     // Handle header clicks
     $(".animated-header").on("click", function (e) {
         e.stopPropagation(); // Prevent triggering the outside click event
@@ -1338,7 +1355,7 @@ li :active {
     $(document).on("click scroll", function (e) {
         if (!$(e.target).closest(".container-about").length) {
             $(".animated-header").removeClass("active"); // Remove active state
-           
+            $(".content").slideUp(300); // Hide all content
         }
     });
 
