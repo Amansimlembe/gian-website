@@ -1488,17 +1488,6 @@ li :active {
     $(document).ready(function () {
 
   
-        // User Counter
-        let userCount = localStorage.getItem("userCount") || 0;
-        userCount = parseInt(userCount) + 1;
-        localStorage.setItem("userCount", userCount);
-        $("#user-count").text(userCount);
-
-      
-
-
-
-  
  // Automatically expand the first header's content on page load
  const firstHeader = $("#first-header");
     const firstContent = firstHeader.closest(".header-content").find(".content");
