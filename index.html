@@ -968,6 +968,80 @@ li :active {
         margin-bottom: 20px;
     }
 }
+
+/* User Counter Section */
+#user-counter {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+#user-count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Comments Section */
+#comments {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+#comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+#comment-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#comment-form button:hover {
+    background-color: #0056b3;
+}
+
+#comments-list {
+    margin-top: 20px;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.like-btn, .share-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.like-btn:hover, .share-btn:hover {
+    background-color: #218838;
+}
+
+.like-count {
+    font-weight: bold;
+    margin-left: 10px;
+}
     </style>
 
 </head>
@@ -1257,6 +1331,26 @@ li :active {
 </section>
 
 
+<!-- User Counter Section -->
+<section id="user-counter" class="text-center">
+    <h2>User Counter</h2>
+    <p>Number of users currently browsing this website:</p>
+    <p id="user-count">0</p>
+</section>
+
+<!-- Comments Section -->
+<section id="comments" class="text-center">
+    <h2>Comments</h2>
+    <form id="comment-form">
+        <textarea id="comment-input" placeholder="Write your comment here..." required></textarea>
+        <button type="submit">Submit Comment</button>
+    </form>
+    <div id="comments-list">
+        <!-- Comments will be dynamically added here -->
+    </div>
+</section>
+
+
 <!-- Contact Section -->
 <section id="contact" class="text-center">
     <h2>Get in Touch with Us</h2>
@@ -1294,7 +1388,76 @@ li :active {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twilio/3.83.0/twilio.min.js"></script>
+    <script>
+   // Wait for the DOM to load
+   document.addEventListener("DOMContentLoaded", function () {
+        // User Counter
+        let userCount = localStorage.getItem("userCount") || 0;
+        userCount = parseInt(userCount) + 1;
+        localStorage.setItem("userCount", userCount);
+        document.getElementById("user-count").textContent = userCount;
+
+        // Comments Section
+        const commentForm = document.getElementById("comment-form");
+        const commentsList = document.getElementById("comments-list");
+
+        commentForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const commentInput = document.getElementById("comment-input");
+            const commentText = commentInput.value.trim();
+
+            if (commentText) {
+                // Add comment to the list
+                const commentElement = document.createElement("div");
+                commentElement.className = "comment";
+                commentElement.innerHTML = `
+                    <p>${commentText}</p>
+                    <button class="like-btn">Like</button>
+                    <span class="like-count">0</span>
+                    <button class="share-btn">Share</button>
+                `;
+                commentsList.appendChild(commentElement);
+
+                // Clear the input
+                commentInput.value = "";
+
+                // Send email notification using EmailJS (if needed)
+                // emailjs.send("service_96upu1b", "template_dd32tz6", {
+                //     to_email: "amansimlembe11@gmail.com",
+                //     message: `New comment: ${commentText}`,
+                // }).then(
+                //     function (response) {
+                //         console.log("Email sent successfully!", response);
+                //     },
+                //     function (error) {
+                //         console.error("Failed to send email.", error);
+                //     }
+                // );
+            }
+        });
+
+        // Like functionality
+        commentsList.addEventListener("click", function (e) {
+            if (e.target.classList.contains("like-btn")) {
+                const likeCount = e.target.nextElementSibling;
+                let likes = parseInt(likeCount.textContent) || 0;
+                likes += 1;
+                likeCount.textContent = likes;
+            }
+        });
+
+        // Share functionality
+        commentsList.addEventListener("click", function (e) {
+            if (e.target.classList.contains("share-btn")) {
+                const commentText = e.target.parentElement.querySelector("p").textContent;
+                alert(`Sharing comment: "${commentText}"`);
+                // In a real-world scenario, integrate social media sharing APIs here.
+            }
+        });
+    });
 
     // Function to toggle "Read More" for blog posts
     function toggleReadMore(button) {
@@ -1323,6 +1486,17 @@ li :active {
 
 
     $(document).ready(function () {
+
+  
+        // User Counter
+        let userCount = localStorage.getItem("userCount") || 0;
+        userCount = parseInt(userCount) + 1;
+        localStorage.setItem("userCount", userCount);
+        $("#user-count").text(userCount);
+
+      
+
+
 
   
  // Automatically expand the first header's content on page load
