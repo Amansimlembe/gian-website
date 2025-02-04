@@ -1371,6 +1371,7 @@ li :active {
 <!-- Comments Section -->
 <section id="comments" class="text-center">
     <h2>Comments</h2>
+    <p>"We value your thoughts! 💬 Drop a comment below and don’t forget to include your name. Your message will be sent directly to the CEO’s WhatsApp! 📩🔥 Let your voice be heard! 👇😊"</p>
     <form id="comment-form">
         <textarea id="comment-input" placeholder="Write your comment here..." required></textarea>
         <button type="submit">Submit Comment</button>
@@ -1378,7 +1379,9 @@ li :active {
     <div id="comments-list">
         <!-- Comments will be dynamically added here -->
     </div>
+
 </section>
+
 
 
 <!-- Contact Section -->
@@ -1463,42 +1466,31 @@ li :active {
 
 
     $(document).ready(function () {
-   // Ensure Like and Share buttons are always displayed as block
-   $(".like-btn, .share-btn").css({"display": "block", "visibility": "visible"});
+  
 
 // Handle comment submission
 $("#comment-form").submit(function (e) {
     e.preventDefault();
     let commentText = $("#comment-input").val().trim();
     if (commentText) {
-        // Send comment directly to WhatsApp number via API
+        let encodedText = encodeURIComponent(commentText);
+        
         $.ajax({
-            url: "https://api.callmebot.com/whatsapp.php",
+            url: `https://api.callmebot.com/whatsapp.php?phone=255752126735&text=${encodedText}&apikey=6972869`,
             type: "GET",
-            data: {
-                phone: "255752126735",
-                text: commentText,
-                apikey: "6972869"
-            },
             success: function () {
-                alert("Comment sent successfully!");
+                alert("Comment sent successfully! ✅");
             },
             error: function () {
-                alert("Failed to send comment. Please try again.");
+                alert("Comment sent but response is yet to be detected. ✅");
+            },
+            complete: function () {
+                $("#comment-input").val("");
             }
         });
-        $("#comment-input").val("");
     }
 });
 
-// Handle Like button click
-$(document).on("click", ".like-btn", function () {
-    let likeCount = $(this).next(".like-count");
-    let likes = parseInt(likeCount.text()) || 0;
-    likes++;
-    likeCount.text(likes);
-    $(this).append("❤️"); // Adds heart emoji animation
-});
 
 // Handle Share button click
 $(document).on("click", ".share-btn", function () {
@@ -1506,7 +1498,6 @@ $(document).on("click", ".share-btn", function () {
     let whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(websiteUrl)}`;
     window.open(whatsappShareUrl, "_blank");
 });
-  
  // Automatically expand the first header's content on page load
  const firstHeader = $("#first-header");
     const firstContent = firstHeader.closest(".header-content").find(".content");
