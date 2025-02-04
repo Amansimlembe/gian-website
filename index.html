@@ -372,17 +372,43 @@ p em {
     padding: 15px 20px;
     background: #f1faee; /* Light green background */
     cursor: pointer;
-    transition: all 0.3s ease;
     text-align: center;
+    position: relative;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Hover and Active State */
-.animated-header:hover,
-.animated-header.active {
+.animated-header:hover {
     background: #1d3557; /* Dark blue background */
     color: #f1faee; /* Light green text */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+.animated-header::after {
+    content: '▼'; /* Downward arrow */
+    font-size: 16px;
+    margin-left: 10px;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.animated-header.active::after {
+    transform: rotate(180deg); /* Flip arrow when active */
+}
+
+@keyframes bounceHint {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.animated-header {
+    animation: bounceHint 1.5s infinite ease-in-out;
+}
+
 
 /* Content styling */
 .content {
@@ -1100,7 +1126,7 @@ li :active {
                 <div class="header-content">
                     <h2 id="first-header" class="animated-header">About Us</h2>
                     <p class="content">
-                       Foodtech Webworks Ltd is a dynamic company at the intersection of technology and business. Founded in 2024, we are dedicated to leveraging digital innovations to transform how businesses operate and engage with their customers in the digital age.
+                       Foodtech Webworks Ltd(FoWeL) is a dynamic company at the intersection of technology and business. Founded in 2024, we are dedicated to leveraging digital innovations to transform how businesses operate and engage with their customers in the digital age.
                     </p>
         
                  
@@ -1173,7 +1199,7 @@ li :active {
         <!-- Project 2: Tea Auction Catalogue System -->
         <div class="portfolio-item">
             <video controls class="portfolio-video">
-                <source src="aman.mp4" type="video/mp4">
+                <source src="aman5.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="portfolio-info">
@@ -1248,7 +1274,7 @@ li :active {
                 <h3>Aman Gasper Simlembe</h3>
                 <p class="role">Founder & CEO</p>
                 <p class="description">
-                    A visionary entrepreneur with a passion for technology and web development. Aman founded Foodtech Webworks Ltd in 2024 with the goal of bridging the gap between businesses and digital innovation.
+                    A visionary entrepreneur with a passion for technology and web development. Aman founded Foodtech Webworks Ltd(FoWeL) in 2024 with the goal of bridging the gap between businesses and digital innovation.
         
                 </p>
             </div>
@@ -1272,7 +1298,7 @@ li :active {
         <div class="team-member">
             <div class="team-member-inner">
                 <figure class="circled-figure">
-                    <img src="FoodTech Logo.png.png" alt="Marketing Manager - Hekima Gaspa" style="width: 200px; height: 200px; border-radius: 50%;">
+                    <img src="hekima1.jpg" alt="Marketing Manager - Hekima Gaspa" style="width: 200px; height: 200px; border-radius: 50%;">
                 </figure>
                 <h3>Hekima Nairobi</h3>
                 <p class="role">Marketing Manager</p>
@@ -1404,63 +1430,10 @@ li :active {
         localStorage.setItem("userCount", userCount);
         document.getElementById("user-count").textContent = userCount;
 
-        // Comments Section
-        const commentForm = document.getElementById("comment-form");
-        const commentsList = document.getElementById("comments-list");
-
-        commentForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            const commentInput = document.getElementById("comment-input");
-            const commentText = commentInput.value.trim();
-
-            if (commentText) {
-                // Add comment to the list
-                const commentElement = document.createElement("div");
-                commentElement.className = "comment";
-                commentElement.innerHTML = `
-                    <p>${commentText}</p>
-                    <button class="like-btn">Like</button>
-                    <span class="like-count">0</span>
-                    <button class="share-btn">Share</button>
-                `;
-                commentsList.appendChild(commentElement);
-
-                // Clear the input
-                commentInput.value = "";
-
-                // Send email notification using EmailJS (if needed)
-                // emailjs.send("service_96upu1b", "template_dd32tz6", {
-                //     to_email: "amansimlembe11@gmail.com",
-                //     message: `New comment: ${commentText}`,
-                // }).then(
-                //     function (response) {
-                //         console.log("Email sent successfully!", response);
-                //     },
-                //     function (error) {
-                //         console.error("Failed to send email.", error);
-                //     }
-                // );
-            }
-        });
-
-        // Like functionality
-        commentsList.addEventListener("click", function (e) {
-            if (e.target.classList.contains("like-btn")) {
-                const likeCount = e.target.nextElementSibling;
-                let likes = parseInt(likeCount.textContent) || 0;
-                likes += 1;
-                likeCount.textContent = likes;
-            }
-        });
-
-        // Share functionality
-        commentsList.addEventListener("click", function (e) {
-            if (e.target.classList.contains("share-btn")) {
-                const commentText = e.target.parentElement.querySelector("p").textContent;
-                alert(`Sharing comment: "${commentText}"`);
-                // In a real-world scenario, integrate social media sharing APIs here.
-            }
-        });
+     
+        
+       
+       
     });
 
     // Function to toggle "Read More" for blog posts
@@ -1490,7 +1463,49 @@ li :active {
 
 
     $(document).ready(function () {
+   // Ensure Like and Share buttons are always displayed as block
+   $(".like-btn, .share-btn").css({"display": "block", "visibility": "visible"});
 
+// Handle comment submission
+$("#comment-form").submit(function (e) {
+    e.preventDefault();
+    let commentText = $("#comment-input").val().trim();
+    if (commentText) {
+        // Send comment directly to WhatsApp number via API
+        $.ajax({
+            url: "https://api.callmebot.com/whatsapp.php",
+            type: "GET",
+            data: {
+                phone: "255752126735",
+                text: commentText,
+                apikey: "6972869"
+            },
+            success: function () {
+                alert("Comment sent successfully!");
+            },
+            error: function () {
+                alert("Failed to send comment. Please try again.");
+            }
+        });
+        $("#comment-input").val("");
+    }
+});
+
+// Handle Like button click
+$(document).on("click", ".like-btn", function () {
+    let likeCount = $(this).next(".like-count");
+    let likes = parseInt(likeCount.text()) || 0;
+    likes++;
+    likeCount.text(likes);
+    $(this).append("❤️"); // Adds heart emoji animation
+});
+
+// Handle Share button click
+$(document).on("click", ".share-btn", function () {
+    let websiteUrl = window.location.href;
+    let whatsappShareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(websiteUrl)}`;
+    window.open(whatsappShareUrl, "_blank");
+});
   
  // Automatically expand the first header's content on page load
  const firstHeader = $("#first-header");
@@ -1518,13 +1533,7 @@ li :active {
         }
     });
 
-    // Hide content when clicking outside the container or scrolling
-    $(document).on("click scroll", function (e) {
-        if (!$(e.target).closest(".container-about").length) {
-            $(".animated-header").removeClass("active"); // Remove active state
-            $(".content").slideUp(300); // Hide all content
-        }
-    });
+
 
     
 
