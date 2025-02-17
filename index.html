@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodtech Webworks Ltd</title>
+    <title>Foodtech Webworks Ltd (FOWEL)</title>
     
     <!-- External CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Country+Gothic&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!-- Embedded CSS for Custom Styles -->
     <style>
@@ -1068,6 +1069,39 @@ li :active {
     font-weight: bold;
     margin-left: 10px;
 }
+
+/* Language Selector Styling */
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+}
+
+.language-selector select {
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    padding: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Responsive Design for Language Selector */
+@media (max-width: 768px) {
+    .language-selector {
+        top: 10px;
+        right: 10px;
+    }
+
+    .language-selector select {
+        font-size: 12px;
+    }
+}
     </style>
 
 </head>
@@ -1080,7 +1114,7 @@ li :active {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="#home">
-                <img src="FoodTech Logo.png.png" alt="Foodtech Webworks Ltd" class="logo">
+                <img src="FoWeL.Off.Logo.jpg" alt="Foodtech Webworks Ltd" class="logo">
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
@@ -1105,6 +1139,9 @@ li :active {
     <a href="#founder"><i class="fas fa-user" style="color: pink;"></i> Our Team</a>
     <a href="#contact"><i class="fas fa-envelope" style="color: brown;"></i> Contact</a>
 </aside>
+
+
+
 
     <main class="container">
         <!-- Home Section -->
@@ -1422,12 +1459,42 @@ li :active {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twilio/3.83.0/twilio.min.js"></script>
-    <script>
-   // Wait for the DOM to load
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twilio/3.83.0/twilio.min.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+     <!-- Google Translate Widget -->
+     <div id="google_translate_element"></div>
+    
+     <script>
+         
+   
    document.addEventListener("DOMContentLoaded", function () {
-        // User Counter
+        
+
+    function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,sw,fr,es,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+        
+        function changeLanguage(lang) {
+            var googleTranslateFrame = document.querySelector("iframe.goog-te-menu-frame");
+            if (googleTranslateFrame) {
+                var innerDoc = googleTranslateFrame.contentDocument || googleTranslateFrame.contentWindow.document;
+                var langLinks = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
+                
+                langLinks.forEach(link => {
+                    if (link.innerText.toLowerCase().includes(lang)) {
+                        link.click();
+                    }
+                });
+            } else {
+                setTimeout(() => changeLanguage(lang), 500); // Retry until the frame loads
+            }
+        }
+
         let userCount = localStorage.getItem("userCount") || 0;
         userCount = parseInt(userCount) + 1;
         localStorage.setItem("userCount", userCount);
@@ -1463,7 +1530,13 @@ li :active {
         }, 5000); // Scroll every 5 seconds
     }
 
-
+    function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,sw,fr,es,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'language');
+        }
 
     $(document).ready(function () {
   
